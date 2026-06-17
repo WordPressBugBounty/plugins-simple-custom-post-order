@@ -4,7 +4,7 @@ Tags: post order, custom post order, sort posts, reorder posts, drag drop order
 Requires at least: 6.2
 Requires PHP: 7.4
 Tested up to: 7.0
-Stable tag: 2.7.3
+Stable tag: 2.8.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -99,6 +99,7 @@ Show your most compelling testimonials first to maximize their impact on potenti
 
 * `scpo_post_types_args` - Modify which post types appear in settings
 * `scpo_use_sortablejs` - Force the drag engine in code (overrides the setting); return `true` for the modern SortableJS engine or `false` for the classic jQuery UI sorter
+* `scpo_capability` - Change the capability required to reorder (default `edit_posts`)
 
 **Drag & Drop Engine**
 Choose between the modern, dependency-free SortableJS engine (default) and the classic jQuery UI sorter under Settings > SCPOrder. The classic engine remains fully supported as a fallback.
@@ -249,6 +250,14 @@ Yes, if you explicitly set `orderby` and `order` parameters in your custom queri
 4. Reset order functionality for specific post types
 
 == Changelog ==
+
+= 2.8.0 - 2026-06-17 =
+
+**New features**
+
+* **Choose where new items are placed** — a setting to add newly created posts/pages/items to the bottom (default) or top of the manual order. Props @mplusb (#45).
+* **Optional “Order” number column** — turn on an editable position column on enabled (non-hierarchical) post-type lists to type an item's exact order, including jumping it across paginated pages. Hidden by default and toggleable via Screen Options. (Hierarchical types like Pages are handled separately in a future release.) Props @mplusb (#76, #89, #136).
+* **Role-based reordering** — restrict drag-and-drop reordering to specific roles in Settings > SCPOrder, with a new `scpo_capability` filter for developers. Props @mplusb (#95, #133).
 
 = 2.7.3 - 2026-06-04 =
 
@@ -487,6 +496,9 @@ Yes, if you explicitly set `orderby` and `order` parameters in your custom queri
 * Initial release
 
 == Upgrade Notice ==
+
+= 2.8.0 =
+New: choose where new items are placed, an optional editable "Order" number column (great for paginated lists), and role-based reordering control.
 
 = 2.7.3 =
 Fixes Quick Edit / Bulk Edit fields being unclickable on post list screens when the Modern sorting engine is active. Recommended for all users on the Modern engine.
